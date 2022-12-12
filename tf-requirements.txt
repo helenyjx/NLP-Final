@@ -1,0 +1,5 @@
+#Tensorflow requirements
+tensorflow
+keras
+tensorflow-gpu
+tensorflow-estimator
