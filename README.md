@@ -42,4 +42,29 @@ BoW looks like:
 
 <img width="735" alt="Screen Shot 2023-09-06 at 5 45 43 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/c337a5b9-148b-479f-8889-c00772581965">
 
+Obviously, some words are useless, such as the, is, and and. On the other hand, the word avoid appears
+twice and unfortunately shows up once. We may consider it as a negative review. In fact, it is. After
+preprocessing the raw reviews, most of meaningless words (stopwords) will be removed from documents,
+and only useful words will be kept. For a document 𝑑, our best estimate of the correct class 𝑐 is:
+
+<img width="215" alt="Screen Shot 2023-09-06 at 5 46 50 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/8935d898-b8c6-4305-b8d8-7a3d910ffe6e">
+
+By the Bayes’ rule and the assumption of independency of features of each documents, we can have:
+
+<img width="441" alt="Screen Shot 2023-09-06 at 5 47 18 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/5db1b0c2-335d-478b-8d22-8073bfd91295">
+
+where 𝑤 are different words in the document. 𝑖
+Before training the NB model, we first preprocess the data (original reviews from Yelp). We change all
+words in lowercase, remove all punctuations and special characters as well as stop words such as "the",
+"a", and "is". Besides, stemming words also plays an important role in our preprocessing. To train and test
+the model, we first split the preprocessed dataset into training and testing datasets with an 80-20 split.
+There’s no need to reinvent the wheel when it works and is efficient. We also use the CountVectorizer()
+class to convert the collection of text documents into a matrix of token counts. Therefore, we use
+multinomial Naive Bayes model provided by Scikit-learn to classify the documents with additive
+(Laplace/Lidstone) smoothing parameter equal to one. The result of the NB model on real and synthetic
+data is presented and discussed in Section 3.
+
+
+
+
 
