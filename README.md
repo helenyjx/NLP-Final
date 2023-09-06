@@ -207,8 +207,11 @@ model has the problem of overfitting. Hyper-parameter tuning is needed for futur
 
 ## Reference
 [1] Yelp Review Data. https://www.kaggle.com/datasets/ilhamfp31/yelp-review-dataset
+
 [2] Jurafsky, Dan and James H. Martin. “Speech and Language Processing.” (2000).
+
 [3] Deep Learning. Available:
 https://medium.datadriveninvestor.com/deep-learning-lstm-for-sentiment-analysis-in-tensorflo
 w-with-keras-api-92e62cde7626
+
 [4] Sentiment Analysis. https://github.com/rw417/Sentiment-Analysis-of-Human-Reviews-
