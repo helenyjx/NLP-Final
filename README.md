@@ -53,7 +53,8 @@ By the Bayes’ rule and the assumption of independency of features of each docu
 
 <img width="441" alt="Screen Shot 2023-09-06 at 5 47 18 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/5db1b0c2-335d-478b-8d22-8073bfd91295">
 
-where 𝑤 are different words in the document. 𝑖
+where 𝑤𝑖 are different words in the document. 
+
 Before training the NB model, we first preprocess the data (original reviews from Yelp). We change all
 words in lowercase, remove all punctuations and special characters as well as stop words such as "the",
 "a", and "is". Besides, stemming words also plays an important role in our preprocessing. To train and test
@@ -63,6 +64,45 @@ class to convert the collection of text documents into a matrix of token counts.
 multinomial Naive Bayes model provided by Scikit-learn to classify the documents with additive
 (Laplace/Lidstone) smoothing parameter equal to one. The result of the NB model on real and synthetic
 data is presented and discussed in Section 3.
+
+### 2.3 Discriminative model – LSTM [3]
+Our neural network model is based on LSTM which is an efficient way to do sentiment analysis since it is
+able to remember and utilize information from long-term dependencies in the input data. We use
+Tensorflow to realize this purpose. For the neural network, the input needs to be numeric. We first
+initialize the tokenizer with a 5000 word limit, which is the number of words we would like to encode.
+Then we create associations of words and numbers, and replace the words in a sentence with their
+respective associated numbers. Since the length of each document is different and LSTM requires inputs
+to have equal lengths, we have to add the sequence to have the chosen length of inputs (20 in our model).
+The structure and parameters of LSTM is as shown below.
+
+<img width="532" alt="Screen Shot 2023-09-06 at 5 48 47 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/f299692d-e418-4698-b2a8-a87bc9d63793">
+
+Our neural network contains 5 layers. The first layer is an embedding layer, which converts the input
+sequences into dense vectors of a fixed size, called embedding vectors. The length of the embedding
+vector is specified as 32 and input length is 20. The second layer is a spatial dropout layer, which
+randomly sets 25% of input units to 0 at each update during training time to help prevent overfitting. The
+third layer is an LSTM layer with 50 units, which is a type of recurrent neural network that can process
+long sequences of data. The dropout percent and recurrent drop-out percent are both set to be 50. The
+fourth layer is a dropout layer, which randomly sets 20 percent of input units to 0 at each update. The final
+layer is a dense layer with sigmoid function as activation function. Since our problem is a binary
+classification problem, binary cross entropy is suitable as loss function and Adam is used as an optimizer.
+To train the model, we found that 10 epochs and a batch size of 32 are enough to generate a stable result.
+The result of the LSTM model on real and synthetic data is presented and discussed in Section 3 as well.
+
+### 2.4 Synthetic data generation [4]
+One reason for calling Naïve Bayes a generative model is that NB can generate synthetic data. When we
+have a NB model, it means that we have estimates of and , which 𝑃(𝑐) 𝑃 𝑤 we can use to generate 𝑖( |𝑐)
+documents. We have to generate sentences word by word. First, we sample a class from 𝑃(𝑐). Next, we
+keep generating words by sampling from 𝑃(𝑑|𝑐) = . One possible problem is that we may not
+𝑖=1
+𝑛
+Π 𝑃 𝑤𝑖( |𝑐)
+know when to stop. We can either enforce the length of the generated sentences is less than a finite
+number 𝑙, or add #𝑆 and #𝐸 to the begin and end of the original documents as words, then if we observe
+an ordered pair of #𝑆 and #𝐸 in the process of generating data, we can slice the words between them to
+form a new sentence. In practice, we combine two methods together. One obvious drawback of the
+synthetic data is that the sentences are very likely to make no sense, since NB ignores the relationship
+between words.
 
 
 
