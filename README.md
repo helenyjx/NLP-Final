@@ -26,5 +26,20 @@ are used to separate new lines.
 ### 2.2 Generative model – Naive Bayes
 Naïve Bayes [2] (NB) is one of the simplest generative probabilistic models to solve the classification
 problem. The foundation behind NB is the Bayes’ rule:
+
 <img width="159" alt="Screen Shot 2023-09-06 at 5 44 57 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/e987391f-e909-4dcb-aa63-e5c87b9a527c">
+
+where is the conditional probability of an event happening given that another 𝑃(𝑦) 𝑥 event 𝑦 has already
+occurred. In our problem, we would like to classify Yelp reviews as negative or positive ones, labeled as 1
+and 2 respectively. Then how should we treat or encode the text? A method called bag-of-words (BoW) is
+adopted. A BoW is a representation of text that describes the occurrence of words within a document,
+ignoring their order. For example, a piece of reviews reads:
+“The food is good. Unfortunately, the service is very hit or miss. The main issue seems to be with the
+kitchen, the waiters and waitresses are often very apologetic for the long waits and it is pretty obvious
+that some of them avoid the tables after taking the initial order to avoid hearing complaints”.
+Immediately, we notice that the occurs 8 times, and occurs 2 times, very occurs 2 times and so on. The
+BoW looks like:
+
+<img width="735" alt="Screen Shot 2023-09-06 at 5 45 43 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/c337a5b9-148b-479f-8889-c00772581965">
+
 
