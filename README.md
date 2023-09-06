@@ -22,3 +22,9 @@ large enough for training models. It contains two columns, which refers to class
 review text. Double quotes (") are used to escape the review paragraphs, and any inside double quotes are
 separated by two double quotes (""). A backslash and a "n" letter, which together form the symbol "\n,"
 are used to separate new lines.
+
+### 2.2 Generative model – Naive Bayes
+Naïve Bayes [2] (NB) is one of the simplest generative probabilistic models to solve the classification
+problem. The foundation behind NB is the Bayes’ rule:
+<img width="159" alt="Screen Shot 2023-09-06 at 5 44 57 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/e987391f-e909-4dcb-aa63-e5c87b9a527c">
+
