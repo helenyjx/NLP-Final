@@ -91,19 +91,8 @@ The result of the LSTM model on real and synthetic data is presented and discuss
 
 ### 2.4 Synthetic data generation [4]
 One reason for calling Naïve Bayes a generative model is that NB can generate synthetic data. When we
-have a NB model, it means that we have estimates of and , which 𝑃(𝑐) 𝑃 𝑤 we can use to generate 𝑖( |𝑐)
-documents. We have to generate sentences word by word. First, we sample a class from 𝑃(𝑐). Next, we
-keep generating words by sampling from 𝑃(𝑑|𝑐) = . One possible problem is that we may not
-𝑖=1
-𝑛
-Π 𝑃 𝑤𝑖( |𝑐)
-know when to stop. We can either enforce the length of the generated sentences is less than a finite
-number 𝑙, or add #𝑆 and #𝐸 to the begin and end of the original documents as words, then if we observe
-an ordered pair of #𝑆 and #𝐸 in the process of generating data, we can slice the words between them to
-form a new sentence. In practice, we combine two methods together. One obvious drawback of the
-synthetic data is that the sentences are very likely to make no sense, since NB ignores the relationship
-between words.
-
+have a NB model, it means that we have estimates of <img width="125" alt="Screen Shot 2023-09-06 at 5 50 18 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/3506159b-cb44-43b9-82ab-a5ef2dde55db"> , which 𝑃(𝑐) we can use to generate documents. We have to generate sentences word by word. First, we sample a class from 𝑃(𝑐). Next, we
+keep generating words by sampling from <img width="147" alt="Screen Shot 2023-09-06 at 5 52 02 PM" src="https://github.com/helenyjx/NLP-Final/assets/112274822/ec1f2703-14ad-4fbe-bab8-066c86e41701">
 
 
 
